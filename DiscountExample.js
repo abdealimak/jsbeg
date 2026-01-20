@@ -19,7 +19,7 @@
 
         let eligibleMemb = subtotal > 100 && (isPremiumMemb || isDiscValid);
 
-        let discountRate = eligibleMemb ? 0.20 : 0; // 20% discount
+        let discountRate = eligibleMemb ? 0.20 : 0;
         let discountAmount = subtotal * discountRate;
         let finalTotal = subtotal - discountAmount;
 
