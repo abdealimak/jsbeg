@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+</head>
+<body>
+    <h1 id="weather">Loading...</h1>
+
+    <script>
+        const url = "https://api.open-meteo.com/v1/forecast?latitude=19.07&longitude=72.87&current_weather=true";
+
+        fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            const temp = data.current_weather.temperature;
+            document.getElementById("weather").innerText = 
+                `Current temperature: ${temp}°C`;
+        })
+        .catch(error => {
+            document.getElementById("weather").innerText = "Error fetching weather data";
+            console.error(error);
+        });
+    </script>
+</body>
+</html>
