@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<head>
+    <title>UL Image Events</title>
+    <style>
+    ul {
+        display: flex;
+        gap: 10px;
+        list-style: none;
+        padding: 0;
+    }
+    img {
+        width: 100px;
+        height: 100px;
+        cursor: pointer;
+        border: 2px solid black;
+    }
+    </style>
+</head>
+<body>
+
+<ul id="imageList">
+    <li><img src="https://picsum.photos/100?1"></li>
+    <li><img src="https://picsum.photos/100?2"></li>
+    <li><img src="https://picsum.photos/100?3"></li>
+    <li><img src="https://picsum.photos/100?4"></li>
+    <li><img src="https://picsum.photos/100?5" id="fifth"></li>
+</ul>
+
+<!--
+if third parameter is false => bubbling propagation
+if third parameter is true => capturing propagation
+-->
+<script>
+    const ul = document.getElementById("imageList");
+    const fifthImage = document.getElementById("fifth");
+
+    ul.addEventListener("click", function () {
+    console.log("UL clicked");
+    },true);
+
+    fifthImage.addEventListener("click", function (event) {
+    console.log("5th image clicked");
+    });
+</script>
